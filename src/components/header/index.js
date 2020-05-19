@@ -15,7 +15,7 @@ export default function Header() {
         <FontAwesomeIcon style={{ marginRight: 7 }} icon={["fab", "spotify"]} />
         Tagify
       </HeaderTitle>
-
+      <Link to="/tags">Tags</Link>
       <RightContainer>
         <SearchView />
         {userState.imageSrc ? (

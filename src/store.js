@@ -11,9 +11,18 @@ export const todoStore = atom({
   },
 });
 
+export const tagsStore = atom({
+  key: "tagsStore",
+  default: {
+    ids: [],
+    items: {},
+  },
+});
+
 export const loginStore = atom({
   key: "login",
   default: {
+    id: null,
     accessToken: null,
     refreshToken: null,
     username: "Not Logged In",
@@ -26,7 +35,17 @@ export const searchResultsStore = atom({
   default: [],
 });
 
+export const selectedTagsStore = atom({
+  key: "selectedTags",
+  default: [],
+});
+
+export const selectedTracksStore = atom({
+  key: "selectedTracks",
+  default: [],
+});
+
 export const searchTermStore = atom({
   key: "searchTerm",
-  default:  ""
+  default: "",
 });

@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRecoilValue } from "recoil";
 import { loginStore } from "../../store";
 
-export default function TrackView({ name, album, artists, uri }) {
+export default function TrackView({ track, isSelected, handleClick }) {
+  const { name, album, artists, uri } = track;
   const loginState = useRecoilValue(loginStore);
 
   const playSong = async (uri) => {
@@ -27,7 +28,10 @@ export default function TrackView({ name, album, artists, uri }) {
   };
 
   return (
-    <Container>
+    <Container
+      className={isSelected ? "select" : ""}
+      onClick={() => handleClick(uri)}
+    >
       <Thumbnail style={{ backgroundImage: `url(${album.images[0].url})` }} />
       <Name>{name}</Name>
       <Artist>{artists[0].name}</Artist>
@@ -47,6 +51,13 @@ const Container = styled.li`
   color: #cdc5db;
   padding: 0.5em 0.5em;
   width: 200;
+  transition: opacity 0.5s;
+  &.select {
+    opacity: 0.5;
+  }
+  :hover {
+    cursor: pointer;
+  }
   align-items: center;
   grid-template-columns: auto 1fr auto auto;
   grid-template-rows: 1fr 1fr;

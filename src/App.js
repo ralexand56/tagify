@@ -2,31 +2,45 @@ import React from "react";
 import "./App.css";
 import styled from "styled-components";
 import Header from "./components/header";
-import { Route, Routes, useParams } from "react-router-dom";
-import { useSetRecoilState, useRecoilValue } from "recoil";
-import { loginStore, searchResultsStore } from "./store";
+import { Route, Routes, useParams, useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { loginStore, tagsStore } from "./store";
 import Spotify from "spotify-web-api-js";
-import TrackView from "./components/trackView";
-import ListContainer from "./components/listContainer";
+import { db } from "./firebase";
+import TagsView from "./components/tagsView";
+import Home from "./pages/home";
 
 function App() {
+  const setTags = useSetRecoilState(tagsStore);
+
+  React.useEffect(() => {
+    db.collection("tags").onSnapshot((data) => {
+      let items = {};
+      const ids = data.docs.map((x) => x.id);
+      data.docs.map((x) => (items[x.id] = x.data()));
+
+      setTags({ ids, items });
+    });
+  }, [setTags]);
+
   return (
     <AppContainer>
       <Header />
       <RouteContainer>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:id/:refresh" element={<Home />} />
+          <Route path="/:id/:refresh" element={<Redirect />} />
+          <Route path="/tags" element={<TagsView />} />
         </Routes>
       </RouteContainer>
     </AppContainer>
   );
 }
 
-function Home() {
+function Redirect() {
   const { id, refresh } = useParams();
   const setLoginState = useSetRecoilState(loginStore);
-  const searchResultsState = useRecoilValue(searchResultsStore);
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     const setLogin = async () => {
@@ -36,11 +50,14 @@ function Home() {
       const user = await spotify.getMe();
 
       setLoginState({
+        id: user.id,
         accessToken: id,
         refreshToken: refresh,
         username: user.display_name,
         imageSrc: user.images[0].url,
       });
+
+      navigate("/");
     };
 
     if (id) {
@@ -48,15 +65,7 @@ function Home() {
     }
   });
 
-  return (
-    <ListContainer>
-      <>
-        {searchResultsState.map((x) => (
-          <TrackView key={x.id} {...x} />
-        ))}
-      </>
-    </ListContainer>
-  );
+  return null;
 }
 
 const AppContainer = styled.main`
@@ -76,28 +85,5 @@ const RouteContainer = styled.main`
   margin: 1.5em;
   border: solid 0px;
 `;
-
-// function TextInput() {
-//   const textState = atom({
-//     key: "textInput",
-//     default: "Hey You",
-//   });
-
-//   const [val, setValue] = useRecoilState(textState);
-//   const charCountState = selector({
-//     key: "charCountState",
-//     get: ({ get }) => get(textState).length,
-//   });
-
-//   const cnt = useRecoilValue(charCountState);
-
-//   const onChange = (e) => setValue(e.target.value);
-//   return (
-//     <div>
-//       <input value={val} onChange={onChange} type="text" />
-//       <div>Echo: {cnt}</div>
-//     </div>
-//   );
-// }
 
 export default App;

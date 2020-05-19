@@ -7,9 +7,9 @@ import { RecoilRoot } from "recoil";
 import { BrowserRouter as Router } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab, faSpotify } from "@fortawesome/free-brands-svg-icons";
-import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faPause, faPlay, faTimes } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faPause, faPlay, faSpotify);
+library.add(fab, faPause, faPlay, faSpotify, faTimes);
 
 ReactDOM.render(
   <React.StrictMode>

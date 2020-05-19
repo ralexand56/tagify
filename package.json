@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@types/styled-components": "^5.1.0",
     "axios": "^0.19.2",
+    "firebase": "^7.14.4",
     "react": "0.0.0-33c3af284",
     "react-dom": "0.0.0-33c3af284",
     "react-router": "^6.0.0-alpha.5",
