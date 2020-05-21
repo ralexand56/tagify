@@ -1,15 +1,15 @@
 import { atom, RecoilState } from "recoil";
-import { TagStore, Login } from "./spotify-functions";
+import { TagStore, Login, Track } from "./spotify-functions";
 
-export const tagsStore: RecoilState<TagStore> = atom({
-  key: "tagsStore",
+export const tagsState: RecoilState<TagStore> = atom({
+  key: "tags",
   default: {
     ids: [],
     items: {},
   },
 });
 
-export const loginStore: RecoilState<Login> = atom<Login>({
+export const loginState: RecoilState<Login> = atom<Login>({
   key: "login",
   default: {
     id: null,
@@ -20,22 +20,22 @@ export const loginStore: RecoilState<Login> = atom<Login>({
   },
 });
 
-export const searchResultsStore: RecoilState<string[]> = atom({
+export const searchResultsState: RecoilState<Track[]> = atom({
   key: "searchResults",
   default: [],
 });
 
-export const selectedTagsStore: RecoilState<string[]> = atom({
+export const selectedTagsState: RecoilState<string[]> = atom({
   key: "selectedTags",
   default: [],
 });
 
-export const selectedTracksStore: RecoilState<string[]> = atom<string[]>({
+export const selectedTracksState: RecoilState<string[]> = atom<string[]>({
   key: "selectedTracks",
   default: [],
 });
 
-export const searchTermStore: RecoilState<string> = atom({
+export const searchTermState: RecoilState<string> = atom({
   key: "searchTerm",
   default: "",
 });

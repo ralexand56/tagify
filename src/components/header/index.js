@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
-import { loginStore } from "../../store";
+import { loginState } from "../../store";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchView from "../search";
 
 export default function Header() {
-  const userState = useRecoilValue(loginStore);
+  const userState = useRecoilValue(loginState);
 
   return (
     <Container>

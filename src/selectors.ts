@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { tagsStore } from "./store";
+import { tagsState } from "./store";
 import { TrackTag } from "./spotify-functions";
 // import { GetRecoilValue, ReadOnlySelectorOptions } from "recoil/lib/core/selector";
 
@@ -9,7 +9,7 @@ import { TrackTag } from "./spotify-functions";
 export const tagsList = selector<TrackTag[]>({
   key: "tags",
   get: ({ get }) => {
-    const store = get(tagsStore);
+    const store = get(tagsState);
 
     return store.ids
       .map((id) => ({ ...store.items[id], id }))

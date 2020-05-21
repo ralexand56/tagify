@@ -61,6 +61,7 @@ const Container = styled.li`
   background-color: #5d5174;
   border-radius: 1em;
   padding: 0.3em 1em;
+  white-space: nowrap;
   &.select {
     border: solid 3px #9680a4;
   }

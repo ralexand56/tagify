@@ -12,6 +12,25 @@ export interface TagCategory {
   userid: string;
 }
 
+export interface Track {
+  uri: string;
+  name: string;
+  album: Album;
+  artists: Artist[];
+}
+
+interface Album {
+  images: Image[];
+}
+
+interface Artist {
+  name: string;
+}
+
+interface Image {
+  url: string
+}
+
 export interface TrackTag {
   id?: string;
   isActive: boolean;

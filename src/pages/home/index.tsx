@@ -3,16 +3,17 @@ import styled from "styled-components";
 import ListContainer from "../../components/listContainer";
 import TagsView from "../../components/tagsView";
 import TrackView from "../../components/trackView";
-import { searchResultsStore, selectedTracksStore } from "../../store";
+import { searchResultsState, selectedTracksState } from "../../store";
 import { useRecoilValue, useRecoilState } from "recoil";
+import { Track } from "../../spotify-functions";
 
 export default function Home() {
-  const searchResultsState = useRecoilValue(searchResultsStore);
-  const [selectedTracks, setSelectedTracks] = useRecoilState(
-    selectedTracksStore
+  const searchResults = useRecoilValue<Track[]>(searchResultsState);
+  const [selectedTracks, setSelectedTracks] = useRecoilState<string[]>(
+    selectedTracksState
   );
 
-  const handleClick = (id) => {
+  const handleClick = (id: string) => {
     selectedTracks.findIndex((i) => i === id) > -1
       ? setSelectedTracks(selectedTracks.filter((x) => x !== id))
       : setSelectedTracks([...selectedTracks, id]);
@@ -21,9 +22,9 @@ export default function Home() {
   return (
     <Container>
       <ListContainer>
-        {searchResultsState.map((x) => (
+        {searchResults.map((x) => (
           <TrackView
-            key={x.id}
+            key={x.uri}
             track={x}
             handleClick={handleClick}
             isSelected={selectedTracks.findIndex((id) => id === x.uri) > -1}

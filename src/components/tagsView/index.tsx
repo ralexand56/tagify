@@ -4,21 +4,21 @@ import { useRecoilValue, useRecoilState } from "recoil";
 import { tagsList } from "../../selectors";
 import { db } from "../../firebase";
 import {
-  loginStore,
-  selectedTagsStore,
-  selectedTracksStore,
-  tagsStore,
+  loginState,
+  selectedTagsState,
+  selectedTracksState,
+  tagsState,
 } from "../../store";
 import TagView from "../tagView";
 import { Login, TrackTag, TagStore } from "../../spotify-functions";
 
 export default function TagsView() {
   const [newTagName, setNewTagName] = React.useState("");
-  const [selectedTags, setSelectedTags] = useRecoilState<string[]>(selectedTagsStore);
-  const selectedTracks = useRecoilValue<string[]>(selectedTracksStore);
-  const tags = useRecoilValue<TagStore>(tagsStore);
+  const [selectedTags, setSelectedTags] = useRecoilState<string[]>(selectedTagsState);
+  const selectedTracks = useRecoilValue<string[]>(selectedTracksState);
+  const tags = useRecoilValue<TagStore>(tagsState);
   const tagList = useRecoilValue<TrackTag[]>(tagsList);
-  const login = useRecoilValue<Login>(loginStore);
+  const login = useRecoilValue<Login>(loginState);
 
   const addTag = (name: string) => {
     if (login.id) {

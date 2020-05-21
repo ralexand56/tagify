@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Header from "./components/header";
 import { Route, Routes, useParams, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { loginStore, tagsStore } from "./store";
+import { loginState, tagsState } from "./store";
 import Spotify from "spotify-web-api-js";
 import { db } from "./firebase";
 import TagsView from "./components/tagsView";
@@ -12,7 +12,7 @@ import Home from "./pages/home";
 import { TrackTag, TagStore } from "./spotify-functions";
 
 function App() {
-  const setTags = useSetRecoilState<TagStore>(tagsStore);
+  const setTags = useSetRecoilState<TagStore>(tagsState);
 
   React.useEffect(() => {
     db.collection("tags").onSnapshot((data) => {
@@ -40,7 +40,7 @@ function App() {
 
 function Redirect() {
   const { id, refresh } = useParams();
-  const setLoginState = useSetRecoilState(loginStore);
+  const setLoginState = useSetRecoilState(loginState);
   const navigate = useNavigate();
 
   React.useEffect(() => {

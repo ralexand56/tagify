@@ -3,15 +3,21 @@ import styled from "styled-components";
 import Spotify from "spotify-web-api-js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRecoilValue } from "recoil";
-import { loginStore } from "../../store";
+import { loginState } from "../../store";
+import { Track, Login } from "../../spotify-functions";
 
-export default function TrackView({ track, isSelected, handleClick }) {
+interface Props {
+  track: Track;
+  isSelected: boolean;
+  handleClick: (uri: string) => void;
+}
+export default function TrackView({ track, isSelected, handleClick }: Props) {
   const { name, album, artists, uri } = track;
-  const loginState = useRecoilValue(loginStore);
+  const login = useRecoilValue<Login>(loginState);
 
-  const playSong = async (uri) => {
+  const playSong = async (uri: string) => {
     const spotify = new Spotify();
-    spotify.setAccessToken(loginState.accessToken);
+    spotify.setAccessToken(login.accessToken);
 
     const devices = (await spotify.getMyDevices()).devices;
 
@@ -20,9 +26,9 @@ export default function TrackView({ track, isSelected, handleClick }) {
     }
   };
 
-  const pauseSong = (uri) => {
+  const pauseSong = (uri: string) => {
     const spotify = new Spotify();
-    spotify.setAccessToken(loginState.accessToken);
+    spotify.setAccessToken(login.accessToken);
 
     spotify.pause();
   };
@@ -57,6 +63,7 @@ const Container = styled.li`
   }
   :hover {
     cursor: pointer;
+    filter: brightness(120%);
   }
   align-items: center;
   grid-template-columns: auto 1fr auto auto;

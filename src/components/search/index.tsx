@@ -1,19 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { searchResultsStore, searchTermStore, loginStore } from "../../store";
+import { searchResultsState, searchTermState, loginState } from "../../store";
 import Spotify from "spotify-web-api-js";
+import { Login } from "../../spotify-functions";
 
 export default function SearchView() {
-  const [searchTermState, setSearchTermState] = useRecoilState(searchTermStore);
-  const setSearchResults = useSetRecoilState(searchResultsStore);
-  const loginState = useRecoilValue(loginStore);
+  const [searchTerm, setSearchTermState] = useRecoilState<string>(searchTermState);
+  const setSearchResults = useSetRecoilState(searchResultsState);
+  const loginValue = useRecoilValue<Login>(loginState);
 
   const getTracks = async () => {
     const spotify = new Spotify();
-    spotify.setAccessToken(loginState.accessToken);
+    spotify.setAccessToken(loginValue.accessToken);
 
-    const response = await spotify.searchTracks(searchTermState, {
+    const response = await spotify.searchTracks(searchTerm, {
       limit: 50,
     });
     setSearchResults(response.tracks.items);
@@ -24,7 +25,7 @@ export default function SearchView() {
       <SearchInput
         onChange={(e) => setSearchTermState(e.target.value)}
         onKeyDown={(e) => (e.which === 13 || e.keyCode === 13) && getTracks()}
-        value={searchTermState}
+        value={searchTerm}
         placeholder="search..."
       />
     </Container>

@@ -2,19 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import Spotify from "spotify-web-api-js";
 import { useRecoilValue } from "recoil";
-import { loginStore } from "../../store";
+import { loginState } from "../../store";
+import { Login } from "../../spotify-functions";
 
 export default function VolumeControl() {
   const [volume, setVolume] = React.useState(100);
-  const loginState = useRecoilValue(loginStore);
+  const login = useRecoilValue<Login>(loginState);
   // const navigate = useNavigate();
 
-  const handleVolumeChange = async (e) => {
+  const handleVolumeChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
       const spotify = new Spotify();
-      spotify.setAccessToken(loginState.accessToken);
+      spotify.setAccessToken(login.accessToken);
 
-      setVolume(e.target.value);
+      setVolume(parseInt(e.currentTarget.value));
 
       const devices = (await spotify.getMyDevices()).devices;
 
