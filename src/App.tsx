@@ -9,15 +9,16 @@ import Spotify from "spotify-web-api-js";
 import { db } from "./firebase";
 import TagsView from "./components/tagsView";
 import Home from "./pages/home";
+import { TrackTag, TagStore } from "./spotify-functions";
 
 function App() {
-  const setTags = useSetRecoilState(tagsStore);
+  const setTags = useSetRecoilState<TagStore>(tagsStore);
 
   React.useEffect(() => {
     db.collection("tags").onSnapshot((data) => {
-      let items = {};
+      let items: Record<string, TrackTag> = {};
       const ids = data.docs.map((x) => x.id);
-      data.docs.map((x) => (items[x.id] = x.data()));
+      data.docs.map((x) => (items[x.id] = x.data() as TrackTag));
 
       setTags({ ids, items });
     });
@@ -54,7 +55,7 @@ function Redirect() {
         accessToken: id,
         refreshToken: refresh,
         username: user.display_name,
-        imageSrc: user.images[0].url,
+        imageSrc: user.images && user.images.length ? user.images[0].url : null,
       });
 
       navigate("/");

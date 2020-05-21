@@ -24,7 +24,9 @@ export default function Header() {
             <UserName>{userState.username}</UserName>
           </UserCard>
         ) : (
-          <Login href="http://localhost:8888/login">Login</Login>
+          <Login href="https://arcane-brushlands-65223.herokuapp.com/login">
+            Login
+          </Login>
         )}
       </RightContainer>
     </Container>

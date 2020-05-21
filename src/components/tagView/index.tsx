@@ -1,16 +1,27 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { db } from "../../firebase";
+import { TrackTag } from "../../spotify-functions";
 
-export default function TagView({ tag, handleClick, isSelected }) {
+interface Props {
+  tag: TrackTag;
+  handleClick: (id: string) => void;
+  isSelected: boolean;
+}
+
+export default function TagView({
+  tag,
+  handleClick,
+  isSelected,
+}: React.PropsWithChildren<Props>) {
   const handleInActivateTag = () => {
     db.collection("tags")
       .doc(tag.id)
       .set({ ...tag, isActive: false });
   };
 
-  const handleOnChange = (e) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     db.collection("tags")
       .doc(tag.id)
       .set({ ...tag, name: e.target.value });
@@ -19,7 +30,7 @@ export default function TagView({ tag, handleClick, isSelected }) {
   return (
     <Container
       className={isSelected ? "select" : ""}
-      onClick={() => handleClick(tag.id)}
+      onClick={() => tag.id && handleClick(tag.id)}
     >
       <span>{tag.name}</span>
       <StyledInput value={tag.name} onChange={handleOnChange} />

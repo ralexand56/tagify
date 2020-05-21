@@ -10,16 +10,17 @@ import {
   tagsStore,
 } from "../../store";
 import TagView from "../tagView";
+import { Login, TrackTag, TagStore } from "../../spotify-functions";
 
 export default function TagsView() {
   const [newTagName, setNewTagName] = React.useState("");
-  const [selectedTags, setSelectedTags] = useRecoilState(selectedTagsStore);
-  const selectedTracks = useRecoilValue(selectedTracksStore);
-  const tags = useRecoilValue(tagsStore);
-  const tagList = useRecoilValue(tagsList);
-  const login = useRecoilValue(loginStore);
+  const [selectedTags, setSelectedTags] = useRecoilState<string[]>(selectedTagsStore);
+  const selectedTracks = useRecoilValue<string[]>(selectedTracksStore);
+  const tags = useRecoilValue<TagStore>(tagsStore);
+  const tagList = useRecoilValue<TrackTag[]>(tagsList);
+  const login = useRecoilValue<Login>(loginStore);
 
-  const addTag = (name) => {
+  const addTag = (name: string) => {
     if (login.id) {
       db.collection("tags").add({
         isActive: true,
@@ -32,9 +33,10 @@ export default function TagsView() {
     }
   };
 
-  const handleNewTagNameChange = (e) => setNewTagName(e.target.value);
-
-  const handleClick = (id) => {
+  const handleNewTagNameChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setNewTagName(e.currentTarget.value);
+  
+  const handleClick = (id: string) => {
     selectedTags.findIndex((i) => i === id) > -1
       ? setSelectedTags(selectedTags.filter((x) => x !== id))
       : setSelectedTags([...selectedTags, id]);
@@ -66,7 +68,7 @@ export default function TagsView() {
         value={newTagName}
         onChange={handleNewTagNameChange}
         onKeyDown={(e) =>
-          (e.which === 13 || e.keyCode === 13) && addTag(e.target.value)
+          (e.which === 13 || e.keyCode === 13) && addTag(e.currentTarget.value)
         }
         placeholder="add tag..."
       />
