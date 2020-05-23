@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <Container>
-      <ListContainer>
+      <ListContainer title={`Tracks - ${searchResults.length}`}>
         {searchResults.map((x) => (
           <TrackView
             key={x.uri}

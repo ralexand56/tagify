@@ -1,13 +1,25 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 import VolumeControl from "../volumeControl";
 
-export default function ListView({ children }) {
+interface Props {
+  title: string;
+  header?: React.ReactElement;
+  footer?: React.ReactElement;
+}
 
+export default function ListView({
+  title = "",
+  children,
+  header,
+}: PropsWithChildren<Props>) {
   return (
     <Container>
       <Header>
-        <span>Tracks</span>
+        {header ?
+          header
+          : <span>{title}</span>
+        }
         <VolumeControl />
       </Header>
       <ListContainer>{children}</ListContainer>
@@ -30,6 +42,7 @@ const Container = styled.section`
   border-radius: 0.5em;
   background-color: hsl(261, 18%, 38%);
   padding: 0.5em 0em;
+  filter: drop-shadow(2px 3px 3px #9680a4);
 `;
 
 const ListContainer = styled.ul`

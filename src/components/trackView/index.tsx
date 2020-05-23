@@ -9,7 +9,7 @@ import { Track, Login } from "../../spotify-functions";
 interface Props {
   track: Track;
   isSelected: boolean;
-  handleClick: (uri: string) => void;
+  handleClick?: (uri: string) => void;
 }
 export default function TrackView({ track, isSelected, handleClick }: Props) {
   const { name, album, artists, uri } = track;
@@ -36,7 +36,7 @@ export default function TrackView({ track, isSelected, handleClick }: Props) {
   return (
     <Container
       className={isSelected ? "select" : ""}
-      onClick={() => handleClick(uri)}
+      onClick={() => handleClick && handleClick(uri)}
     >
       <Thumbnail style={{ backgroundImage: `url(${album.images[0].url})` }} />
       <Name>{name}</Name>

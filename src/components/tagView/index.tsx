@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { db } from "../../firebase";
@@ -40,6 +40,7 @@ export default function TagView({
 }
 
 const Icon = styled(FontAwesomeIcon)`
+  display: none;
   margin: 0 0.3em;
   opacity: 0;
   transform: scale(0);
@@ -63,23 +64,28 @@ const Container = styled.li`
   padding: 0.3em 1em;
   white-space: nowrap;
   &.select {
-    border: solid 3px #9680a4;
+    /* border: solid 3px #9680a4; */
+    filter: drop-shadow(0px 0px 0px #9680a4);
   }
-  :hover svg {
+
+  :hover {
+    cursor: pointer;
+  }
+  /* :hover svg {
     opacity: 1;
     transform: scale(1);
-  }
+  } */
 
-  :hover input {
+  /* :hover input {
     display: block;
-  }
+  } */
 
-  :hover span {
+  /* :hover span {
     display: none;
-  }
-  transition: all 0.5s;
-  box-shadow: 0 1.2px 2px rgba(0, 0, 0, 0.02),
-    0 2.9px 4.9px rgba(0, 0, 0, 0.028), 0 5.4px 9.3px rgba(0, 0, 0, 0.035),
-    0 9.6px 16.5px rgba(0, 0, 0, 0.042), 0 18px 30.9px rgba(0, 0, 0, 0.05),
-    0 43px 74px rgba(0, 0, 0, 0.07);
+  } */
+  transition: all 0.3s;
+  filter: drop-shadow(2px 3px 3px #9680a4);
+  /* box-shadow: 0 0px 1.1px rgba(0, 0, 0, 0.02), 0 0px 2.5px rgba(0, 0, 0, 0.028),
+    0 0px 4.8px rgba(0, 0, 0, 0.035), 0 0px 8.5px rgba(0, 0, 0, 0.042),
+    0 0px 15.9px rgba(0, 0, 0, 0.05), 0 0px 38px rgba(0, 0, 0, 0.07); */
 `;

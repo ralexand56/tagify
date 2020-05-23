@@ -3,21 +3,25 @@ import styled from "styled-components";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { searchResultsState, searchTermState, loginState } from "../../store";
 import Spotify from "spotify-web-api-js";
-import { Login } from "../../spotify-functions";
+import { Login, getTracksBySearchTerm } from "../../spotify-functions";
 
 export default function SearchView() {
-  const [searchTerm, setSearchTermState] = useRecoilState<string>(searchTermState);
+  const [searchTerm, setSearchTermState] = useRecoilState<string>(
+    searchTermState
+  );
   const setSearchResults = useSetRecoilState(searchResultsState);
   const loginValue = useRecoilValue<Login>(loginState);
 
   const getTracks = async () => {
-    const spotify = new Spotify();
-    spotify.setAccessToken(loginValue.accessToken);
-
-    const response = await spotify.searchTracks(searchTerm, {
-      limit: 50,
-    });
-    setSearchResults(response.tracks.items);
+    if (loginValue.accessToken) {
+      setSearchResults(
+        await getTracksBySearchTerm(
+          searchTerm,
+          new Spotify(),
+          loginValue.accessToken
+        )
+      );
+    }
   };
 
   return (

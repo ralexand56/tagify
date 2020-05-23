@@ -9,15 +9,16 @@ import Spotify from "spotify-web-api-js";
 import { db } from "./firebase";
 import TagsView from "./components/tagsView";
 import Home from "./pages/home";
-import { TrackTag, TagStore } from "./spotify-functions";
+import { TrackTag } from "./spotify-functions";
+import Demo from "./pages/demo";
 
 function App() {
-  const setTags = useSetRecoilState<TagStore>(tagsState);
+  const setTags = useSetRecoilState(tagsState);
 
   React.useEffect(() => {
     db.collection("tags").onSnapshot((data) => {
       let items: Record<string, TrackTag> = {};
-      const ids = data.docs.map((x) => x.id);
+      let ids = data.docs.map((x) => x.id);
       data.docs.map((x) => (items[x.id] = x.data() as TrackTag));
 
       setTags({ ids, items });
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/:id/:refresh" element={<Redirect />} />
           <Route path="/tags" element={<TagsView />} />
+          <Route path="/demo" element={<Demo />} />
         </Routes>
       </RouteContainer>
     </AppContainer>

@@ -8,14 +8,32 @@ import {
   selectedTagsState,
   selectedTracksState,
   tagsState,
+  tagTracksState,
 } from "../../store";
 import TagView from "../tagView";
-import { Login, TrackTag, TagStore } from "../../spotify-functions";
+import {
+  Login,
+  TrackTag,
+  TagStore,
+  TagTracksStore,
+  getTagByID,
+  getTrackURIsByTags,
+  getTracksByURIs,
+  Track,
+} from "../../spotify-functions";
+import SpotifyWebApi from "spotify-web-api-js";
+import ListView from "../listContainer";
+import TrackView from "../trackView";
 
 export default function TagsView() {
   const [newTagName, setNewTagName] = React.useState("");
-  const [selectedTags, setSelectedTags] = useRecoilState<string[]>(selectedTagsState);
+  const [selectedTags, setSelectedTags] = useRecoilState<string[]>(
+    selectedTagsState
+  );
   const selectedTracks = useRecoilValue<string[]>(selectedTracksState);
+  const [tagTracks, setTagTracks] = useRecoilState<TagTracksStore>(
+    tagTracksState
+  );
   const tags = useRecoilValue<TagStore>(tagsState);
   const tagList = useRecoilValue<TrackTag[]>(tagsList);
   const login = useRecoilValue<Login>(loginState);
@@ -35,11 +53,42 @@ export default function TagsView() {
 
   const handleNewTagNameChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setNewTagName(e.currentTarget.value);
-  
-  const handleClick = (id: string) => {
-    selectedTags.findIndex((i) => i === id) > -1
-      ? setSelectedTags(selectedTags.filter((x) => x !== id))
-      : setSelectedTags([...selectedTags, id]);
+
+  const handleClick = async (id: string) => {
+    let newSelectedTags = [];
+
+    if (selectedTags.findIndex((i) => i === id) > -1) {
+      newSelectedTags = selectedTags.filter((x) => x !== id);
+    } else {
+      newSelectedTags = [...selectedTags, id];
+    }
+
+    setSelectedTags(newSelectedTags);
+
+    const newTags = newSelectedTags.map((t) => getTagByID(t, tags.items));
+
+    const ids = getTrackURIsByTags(newTags).map((t) =>
+      t.replace("spotify:track:", "")
+    );
+
+    if (login.accessToken) {
+      let newItems: Record<string, Track> = {};
+
+      if (ids.length) {
+        const spotTracks = await getTracksByURIs(
+          ids,
+          new SpotifyWebApi(),
+          login.accessToken
+        );
+
+        if (spotTracks) {
+          spotTracks.forEach((x) => (newItems[x.uri] = x));
+          setTagTracks({ ids: spotTracks.map((s) => s.uri), items: newItems });
+        }
+      } else {
+        setTagTracks({ ids: [], items: {} });
+      }
+    }
   };
 
   const handleAddSelectedTag = () => {
@@ -72,17 +121,30 @@ export default function TagsView() {
         }
         placeholder="add tag..."
       />
-      {tagList.map((t) => (
-        <TagView
-          tag={t}
-          key={t.id}
-          isSelected={selectedTags.findIndex((id) => id === t.id) > -1}
-          handleClick={handleClick}
-        >
-          {t.name}
-        </TagView>
-      ))}
+      <ItemContainer>
+        {tagList.map((t) => (
+          <TagView
+            tag={t}
+            key={t.id}
+            isSelected={selectedTags.findIndex((id) => id === t.id) > -1}
+            handleClick={handleClick}
+          >
+            {t.name}
+          </TagView>
+        ))}
+      </ItemContainer>
       <Button onClick={handleAddSelectedTag}>Add Tag to Song</Button>
+      <TrackListContainer
+        style={{ display: tagTracks.ids.length ? "block" : "none" }}
+      >
+        <ListView title={`Selected Tags Tracks ${tagTracks.ids.length}`}>
+          {tagTracks.ids
+            .map((t) => tagTracks.items[t])
+            .map((x) => (
+              <TrackView key={x.uri} track={x} isSelected={false} />
+            ))}
+        </ListView>
+      </TrackListContainer>
     </Container>
   );
 }
@@ -92,6 +154,17 @@ const Button = styled.button`
 `;
 
 const Container = styled.section`
+  position: relative;
+  margin: 1em;
+`;
+
+const ItemContainer = styled.ul`
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
+`;
+
+const TrackListContainer = styled.section`
+  position: fixed;
+  right: 0;
+  margin: 1em;
 `;
