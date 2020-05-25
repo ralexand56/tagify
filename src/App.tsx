@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import styled from "styled-components";
+import styled, { DefaultTheme, createGlobalStyle } from "styled-components";
 import Header from "./components/header";
 import { Route, Routes, useParams, useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
@@ -12,10 +12,22 @@ import Home from "./pages/home";
 import { TrackTag } from "./spotify-functions";
 import Demo from "./pages/demo";
 
-function App() {
+interface Props {
+  handleThemeSwitching: (theme: DefaultTheme) => void;
+  theme?: DefaultTheme;
+}
+
+export default function App({ handleThemeSwitching }: Props) {
   const setTags = useSetRecoilState(tagsState);
+  const setLogin = useSetRecoilState(loginState);
 
   React.useEffect(() => {
+    const localLogin = localStorage.getItem("login");
+
+    if (localLogin) {
+      setLogin(JSON.parse(localLogin));
+    }
+
     db.collection("tags").onSnapshot((data) => {
       let items: Record<string, TrackTag> = {};
       let ids = data.docs.map((x) => x.id);
@@ -23,11 +35,12 @@ function App() {
 
       setTags({ ids, items });
     });
-  }, [setTags]);
+  }, [setTags, setLogin]);
 
   return (
     <AppContainer>
-      <Header />
+      <GlobalStyles />
+      <Header handleThemeSwitching={handleThemeSwitching} />
       <RouteContainer>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -52,13 +65,24 @@ function Redirect() {
       spotify.setAccessToken(id);
       const user = await spotify.getMe();
 
-      setLoginState({
+      // const logOutUser = {
+      //   id: null,
+      //   accessToken: null,
+      //   refreshToken: null,
+      //   username: "Not Logged In",
+      //   imageSrc: null,
+      // };
+
+      const newLogin = {
         id: user.id,
         accessToken: id,
         refreshToken: refresh,
         username: user.display_name,
         imageSrc: user.images && user.images.length ? user.images[0].url : null,
-      });
+      };
+
+      setLoginState(newLogin);
+      localStorage.setItem("login", JSON.stringify(newLogin));
 
       navigate("/");
     };
@@ -73,7 +97,6 @@ function Redirect() {
 
 const AppContainer = styled.main`
   display: grid;
-  background-color: #e2deea;
   grid-template-rows: auto 1fr;
   gap: 1em;
   grid-template-areas:
@@ -89,4 +112,11 @@ const RouteContainer = styled.main`
   border: solid 0px;
 `;
 
-export default App;
+const GlobalStyles = createGlobalStyle`
+  html {
+    background-color: ${(props) => props.theme.colors.light};
+    --color-text: black;
+    --color-background: white;
+    --color-primary: rebeccapurple;
+  }
+`;

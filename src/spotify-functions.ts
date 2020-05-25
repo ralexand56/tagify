@@ -1,4 +1,5 @@
 import SpotifyWebApi from "spotify-web-api-js";
+import axios from "axios";
 
 export interface Login {
   id: string | null;
@@ -101,4 +102,14 @@ export const getTracksByURIs = async (
   } catch (error) {
     console.log(error);
   }
+};
+
+export const refreshToken = (
+  token: string
+): Promise<{ access_token: string }> => getNewAccessToken(token);
+
+const getNewAccessToken = async (token: string) => {
+  const url = `https://arcane-brushlands-65223.herokuapp.com/refresh_token/?refresh_token=${token}`;
+
+  return (await axios.get(url)).data;
 };

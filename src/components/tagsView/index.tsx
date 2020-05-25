@@ -24,6 +24,8 @@ import {
 import SpotifyWebApi from "spotify-web-api-js";
 import ListView from "../listContainer";
 import TrackView from "../trackView";
+import Button from "../shared/Button";
+import { CustomInput } from "../shared/Input";
 
 export default function TagsView() {
   const [newTagName, setNewTagName] = React.useState("");
@@ -38,7 +40,8 @@ export default function TagsView() {
   const tagList = useRecoilValue<TrackTag[]>(tagsList);
   const login = useRecoilValue<Login>(loginState);
 
-  const addTag = (name: string) => {
+  const addTag = (name: string | null) => {
+
     if (login.id) {
       db.collection("tags").add({
         isActive: true,
@@ -112,14 +115,14 @@ export default function TagsView() {
 
   return (
     <Container>
-      <input
-        type="text"
-        value={newTagName}
+      <CustomInput
+        defaultValue={newTagName}
         onChange={handleNewTagNameChange}
-        onKeyDown={(e) =>
-          (e.which === 13 || e.keyCode === 13) && addTag(e.currentTarget.value)
-        }
-        placeholder="add tag..."
+        onKeyDown={(e) => {
+          (e.which === 13 || e.keyCode === 13) &&
+            addTag(newTagName);
+        }}
+        label="add tag..."
       />
       <ItemContainer>
         {tagList.map((t) => (
@@ -133,7 +136,9 @@ export default function TagsView() {
           </TagView>
         ))}
       </ItemContainer>
-      <Button onClick={handleAddSelectedTag}>Add Tag to Song</Button>
+      <Button icon="plus" onClick={handleAddSelectedTag}>
+        Add Tag to Song
+      </Button>
       <TrackListContainer
         style={{ display: tagTracks.ids.length ? "block" : "none" }}
       >
@@ -148,10 +153,6 @@ export default function TagsView() {
     </Container>
   );
 }
-
-const Button = styled.button`
-  padding: 0.3em 0.5em;
-`;
 
 const Container = styled.section`
   position: relative;

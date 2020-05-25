@@ -1,26 +1,47 @@
 import React from "react";
 import styled from "styled-components";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { searchResultsState, searchTermState, loginState } from "../../store";
 import Spotify from "spotify-web-api-js";
-import { Login, getTracksBySearchTerm } from "../../spotify-functions";
+import {
+  Login,
+  getTracksBySearchTerm,
+  refreshToken,
+} from "../../spotify-functions";
 
 export default function SearchView() {
   const [searchTerm, setSearchTermState] = useRecoilState<string>(
     searchTermState
   );
   const setSearchResults = useSetRecoilState(searchResultsState);
-  const loginValue = useRecoilValue<Login>(loginState);
+  const [login, setLogin] = useRecoilState<Login>(loginState);
 
   const getTracks = async () => {
-    if (loginValue.accessToken) {
-      setSearchResults(
-        await getTracksBySearchTerm(
-          searchTerm,
-          new Spotify(),
-          loginValue.accessToken
-        )
-      );
+    try {
+      if (login.accessToken) {
+        setSearchResults(
+          await getTracksBySearchTerm(
+            searchTerm,
+            new Spotify(),
+            login.accessToken
+          )
+        );
+      }
+    } catch (error) {
+      console.log(JSON.parse(error.response).error.message);
+
+      if (login.refreshToken) {
+        const access_token = (await refreshToken(login.refreshToken))
+          .access_token;
+        setLogin((oldLogin) => ({
+          ...oldLogin,
+          access_token,
+        }));
+
+        setSearchResults(
+          await getTracksBySearchTerm(searchTerm, new Spotify(), access_token)
+        );
+      }
     }
   };
 
@@ -46,7 +67,7 @@ const SearchInput = styled.input`
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  background-color: #a9bdbd;
+  background-color: ${(props) => props.theme.colors.light};
   background-clip: padding-box;
   border-radius: 1rem;
   margin-right: 1em;
@@ -59,7 +80,6 @@ const SearchInput = styled.input`
   display: inline-block;
   text-align: start;
   appearance: textfield;
-  background-color: #9680a4;
   cursor: text;
   margin-right: 1.5em;
   font: 400 13.3333px Arial;

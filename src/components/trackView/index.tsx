@@ -54,7 +54,7 @@ export default function TrackView({ track, isSelected, handleClick }: Props) {
 const Container = styled.li`
   display: grid;
   border: solid 0px;
-  color: #cdc5db;
+  color: ${props => props.theme.colors.light};
   padding: 0.5em 0.5em;
   width: 200;
   transition: opacity 0.5s;

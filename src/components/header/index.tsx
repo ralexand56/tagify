@@ -1,21 +1,31 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { DefaultTheme } from "styled-components";
 import { useRecoilValue } from "recoil";
 import { loginState } from "../../store";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchView from "../search";
+// import { ReactComponent as Logo } from "../../tagify2.svg";
+import Logo from "../logo";
+import ThemeSelector from "../themeSelector";
 
-export default function Header() {
+interface Props {
+  handleThemeSwitching: (theme: DefaultTheme) => void;
+}
+
+export default function Header({ handleThemeSwitching }: Props) {
   const userState = useRecoilValue(loginState);
 
   return (
     <Container>
       <HeaderTitle to="/">
-        <FontAwesomeIcon style={{ marginRight: 7 }} icon={["fab", "spotify"]} />
-        Tagify
+        <Logo width="30" />
+        {/* <img src="/images/logo.png" width="30" alt="logp"/> */}
+        {/* <FontAwesomeIcon style={{ marginRight: 7 }} icon={["fab", "spotify"]} /> */}
+        <span style={{ fontSize: "1.3em" }}>Tagify</span>
       </HeaderTitle>
       <Link to="/tags">Tags</Link>
+      <ThemeSelector handleThemeSwitching={handleThemeSwitching} />
       <RightContainer>
         <SearchView />
         {userState.imageSrc ? (
@@ -39,7 +49,7 @@ const HeaderTitle = styled(Link)`
   font-weight: 700;
   font-size: 1.3em;
   letter-spacing: 0.1em;
-  color: #9680a4;
+  color: ${(props) => props.theme.colors.light};
   text-decoration: none;
 `;
 
@@ -49,7 +59,7 @@ const RightContainer = styled.section`
 `;
 
 const Login = styled.a`
-  color: #e2deea;
+  color: ${(props) => props.theme.colors.light};
   text-decoration: none;
 `;
 
@@ -62,7 +72,7 @@ const UserCard = styled.section`
   align-items: center;
   border-radius: 2em;
   font-weight: 700;
-  color: #9680a4;
+  color: ${(props) => props.theme.colors.light};
 `;
 
 const UserImage = styled.img`
@@ -71,8 +81,8 @@ const UserImage = styled.img`
 `;
 
 const Container = styled.header`
-  color: #e4e0dd;
-  background-color: #5d5174;
+  color: ${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.colors.dark};
   padding: 1em;
   grid-area: header;
   display: flex;
