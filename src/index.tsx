@@ -10,13 +10,24 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { themes } from "./themes";
 import { fab, faSpotify } from "@fortawesome/free-brands-svg-icons";
 import {
+  faEllipsisV,
+  faEllipsisH,
   faPause,
   faPlay,
   faPlus,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faPause, faPlus, faPlay, faSpotify, faTimes);
+library.add(
+  fab,
+  faPause,
+  faEllipsisH,
+  faEllipsisV,
+  faPlus,
+  faPlay,
+  faSpotify,
+  faTimes
+);
 
 const AppContainer = () => {
   const [theme, setTheme] = React.useState(themes[0]);
@@ -25,15 +36,13 @@ const AppContainer = () => {
     setTheme(selectedTheme);
 
   return (
-    <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <RecoilRoot>
-            <App handleThemeSwitching={handleThemeSwitching} />
-          </RecoilRoot>
-        </Router>
-      </ThemeProvider>
-    </React.StrictMode>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <RecoilRoot>
+          <App handleThemeSwitching={handleThemeSwitching} />
+        </RecoilRoot>
+      </Router>
+    </ThemeProvider>
   );
 };
 

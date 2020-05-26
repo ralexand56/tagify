@@ -3,7 +3,6 @@ import styled, { DefaultTheme } from "styled-components";
 import { Link } from "react-router-dom";
 import SearchView from "../search";
 import Logo from "../logo";
-import ThemeSelector from "../themeSelector";
 import UserView from "../userView";
 
 interface Props {
@@ -18,10 +17,9 @@ export default function Header({ handleThemeSwitching }: Props) {
         <span style={{ fontSize: "1.3em" }}>Tagify</span>
       </HeaderTitle>
       <Link to="/tags">Tags</Link>
-      <ThemeSelector handleThemeSwitching={handleThemeSwitching} />
       <RightContainer>
         <SearchView />
-        <UserView />
+        <UserView handleThemeSwitching={handleThemeSwitching} />
       </RightContainer>
     </Container>
   );

@@ -113,3 +113,11 @@ const getNewAccessToken = async (token: string) => {
 
   return (await axios.get(url)).data;
 };
+
+export const logOutUser = {
+  id: null,
+  accessToken: null,
+  refreshToken: null,
+  username: "Not Logged In",
+  imageSrc: null,
+};

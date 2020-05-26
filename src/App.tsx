@@ -64,15 +64,6 @@ function Redirect() {
 
       spotify.setAccessToken(id);
       const user = await spotify.getMe();
-
-      // const logOutUser = {
-      //   id: null,
-      //   accessToken: null,
-      //   refreshToken: null,
-      //   username: "Not Logged In",
-      //   imageSrc: null,
-      // };
-
       const newLogin = {
         id: user.id,
         accessToken: id,
