@@ -1,43 +1,27 @@
 import React from "react";
 import styled, { DefaultTheme } from "styled-components";
-import { useRecoilValue } from "recoil";
-import { loginState } from "../../store";
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchView from "../search";
-// import { ReactComponent as Logo } from "../../tagify2.svg";
 import Logo from "../logo";
 import ThemeSelector from "../themeSelector";
+import UserView from "../userView";
 
 interface Props {
   handleThemeSwitching: (theme: DefaultTheme) => void;
 }
 
 export default function Header({ handleThemeSwitching }: Props) {
-  const userState = useRecoilValue(loginState);
-
   return (
     <Container>
       <HeaderTitle to="/">
         <Logo width="30" />
-        {/* <img src="/images/logo.png" width="30" alt="logp"/> */}
-        {/* <FontAwesomeIcon style={{ marginRight: 7 }} icon={["fab", "spotify"]} /> */}
         <span style={{ fontSize: "1.3em" }}>Tagify</span>
       </HeaderTitle>
       <Link to="/tags">Tags</Link>
       <ThemeSelector handleThemeSwitching={handleThemeSwitching} />
       <RightContainer>
         <SearchView />
-        {userState.imageSrc ? (
-          <UserCard>
-            <UserImage src={userState.imageSrc} />
-            <UserName>{userState.username}</UserName>
-          </UserCard>
-        ) : (
-          <Login href="https://arcane-brushlands-65223.herokuapp.com/login">
-            Login
-          </Login>
-        )}
+        <UserView />
       </RightContainer>
     </Container>
   );
@@ -56,28 +40,6 @@ const HeaderTitle = styled(Link)`
 const RightContainer = styled.section`
   display: flex;
   align-items: center;
-`;
-
-const Login = styled.a`
-  color: ${(props) => props.theme.colors.light};
-  text-decoration: none;
-`;
-
-const UserName = styled.section`
-  padding: 0 0.5em;
-`;
-
-const UserCard = styled.section`
-  display: flex;
-  align-items: center;
-  border-radius: 2em;
-  font-weight: 700;
-  color: ${(props) => props.theme.colors.light};
-`;
-
-const UserImage = styled.img`
-  border-radius: 50%;
-  height: 50px;
 `;
 
 const Container = styled.header`
