@@ -15,17 +15,6 @@ export interface TagCategory {
   userid: string;
 }
 
-export interface Track {
-  uri: string;
-  name: string;
-  album: Album;
-  artists: Artist[];
-}
-
-interface Album {
-  images: Image[];
-}
-
 interface Artist {
   name: string;
 }
@@ -50,6 +39,103 @@ export interface TagStore {
 export interface TagTracksStore {
   ids: string[];
   items: Record<string, Track>;
+}
+
+export interface Playlist {
+  collaborative: boolean;
+  description: string;
+  external_urls: ExternalUrls;
+  followers: Followers;
+  href: string;
+  id: string;
+  images: PlaylistImage[];
+  name: string;
+  owner: Owner;
+  public: null;
+  snapshot_id: string;
+  tracks: Tracks;
+  type: string;
+  uri: string;
+}
+
+export interface ExternalUrls {
+  spotify: string;
+}
+
+export interface Followers {
+  href: null;
+  total: number;
+}
+
+export interface PlaylistImage {
+  url: string;
+}
+
+export interface Owner {
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  type: string;
+  uri: string;
+  name?: string;
+}
+
+export interface Tracks {
+  href: string;
+  items: Item[];
+  limit: number;
+  next: string;
+  offset: number;
+  previous: null;
+  total: number;
+}
+
+export interface Item {
+  added_at: Date;
+  added_by: Owner;
+  is_local: boolean;
+  track: Track;
+}
+
+export interface Track {
+  album: Album;
+  artists: Owner[];
+  available_markets: string[];
+  disc_number: number;
+  duration_ms: number;
+  explicit: boolean;
+  external_ids: ExternalIDS;
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  name: string;
+  popularity: number;
+  preview_url: string;
+  track_number: number;
+  type: string;
+  uri: string;
+}
+
+export interface Album {
+  album_type: string;
+  available_markets: string[];
+  external_urls: ExternalUrls;
+  href: string;
+  id: string;
+  images: AlbumImage[];
+  name: string;
+  type: string;
+  uri: string;
+}
+
+export interface AlbumImage {
+  height: number;
+  url: string;
+  width: number;
+}
+
+export interface ExternalIDS {
+  isrc: string;
 }
 
 export const getTagByID = (
@@ -121,3 +207,8 @@ export const logOutUser = {
   username: "Not Logged In",
   imageSrc: null,
 };
+
+export const getPlaylists = async (
+  userid: string,
+  spotify: SpotifyWebApi.SpotifyWebApiJs,
+) => await spotify.getUserPlaylists(userid);

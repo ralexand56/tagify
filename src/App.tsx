@@ -3,14 +3,15 @@ import "./App.css";
 import styled, { DefaultTheme, createGlobalStyle } from "styled-components";
 import Header from "./components/header";
 import { Route, Routes, useParams, useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { loginState, tagsState } from "./store";
 import Spotify from "spotify-web-api-js";
 import { db } from "./firebase";
 import TagsView from "./components/tagsView";
 import Home from "./pages/home";
-import { TrackTag } from "./spotify-functions";
+import { TrackTag, Playlist, getPlaylists } from "./spotify-functions";
 import Demo from "./pages/demo";
+import PlaylistView from "./components/playlistView";
 
 interface Props {
   handleThemeSwitching: (theme: DefaultTheme) => void;
@@ -19,7 +20,9 @@ interface Props {
 
 export default function App({ handleThemeSwitching }: Props) {
   const setTags = useSetRecoilState(tagsState);
-  const setLogin = useSetRecoilState(loginState);
+  const [login, setLogin] = useRecoilState(loginState);
+
+  const [playlists, setPlaylists] = React.useState<ListOfUsersPlaylists[]>([]);
 
   React.useEffect(() => {
     const localLogin = localStorage.getItem("login");
@@ -35,6 +38,17 @@ export default function App({ handleThemeSwitching }: Props) {
 
       setTags({ ids, items });
     });
+
+    const getPlayLst = async() =>{
+      if (login.id) {
+      const spotify = new Spotify();
+      spotify.setAccessToken(login.accessToken);
+
+      const arr = getPlaylists(login.id, spotify)
+      setPlaylists(await );
+    }
+    }
+    
   }, [setTags, setLogin]);
 
   return (
@@ -44,6 +58,10 @@ export default function App({ handleThemeSwitching }: Props) {
       <RouteContainer>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route
+            path="/songlist"
+            element={<PlaylistView playlist="Steely Dan" />}
+          />
           <Route path="/:id/:refresh" element={<Redirect />} />
           <Route path="/tags" element={<TagsView />} />
           <Route path="/demo" element={<Demo />} />
