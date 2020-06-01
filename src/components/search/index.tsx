@@ -19,13 +19,13 @@ export default function SearchView() {
   const getTracks = async () => {
     try {
       if (login.accessToken) {
-        setSearchResults(
-          await getTracksBySearchTerm(
-            searchTerm,
-            new Spotify(),
-            login.accessToken
-          )
-        );
+        // setSearchResults(
+        //   await getTracksBySearchTerm(
+        //     searchTerm,
+        //     new Spotify(),
+        //     login.accessToken
+        //   )
+        // );
       }
     } catch (error) {
       console.log(JSON.parse(error.response).error.message);
@@ -38,9 +38,9 @@ export default function SearchView() {
           access_token,
         }));
 
-        setSearchResults(
-          await getTracksBySearchTerm(searchTerm, new Spotify(), access_token)
-        );
+        // setSearchResults(
+        //   await getTracksBySearchTerm(searchTerm, new Spotify(), access_token)
+        // );
       }
     }
   };

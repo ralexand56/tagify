@@ -22,7 +22,7 @@ import {
   Track,
 } from "../../spotify-functions";
 import SpotifyWebApi from "spotify-web-api-js";
-import ListView from "../listContainer";
+import ListView from "../listView";
 import TrackView from "../trackView";
 import Button from "../shared/Button";
 import { CustomInput } from "../shared/Input";
@@ -75,7 +75,7 @@ export default function TagsView() {
     );
 
     if (login.accessToken) {
-      let newItems: Record<string, Track> = {};
+      let newItems: Record<string, SpotifyApi.TrackObjectFull> = {};
 
       if (ids.length) {
         const spotTracks = await getTracksByURIs(

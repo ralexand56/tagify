@@ -9,9 +9,10 @@ import Spotify from "spotify-web-api-js";
 import { db } from "./firebase";
 import TagsView from "./components/tagsView";
 import Home from "./pages/home";
-import { TrackTag, Playlist, getPlaylists } from "./spotify-functions";
+import { TrackTag, Playlist } from "./spotify-functions";
 import Demo from "./pages/demo";
 import PlaylistView from "./components/playlistView";
+import axios from "axios";
 
 interface Props {
   handleThemeSwitching: (theme: DefaultTheme) => void;
@@ -22,7 +23,7 @@ export default function App({ handleThemeSwitching }: Props) {
   const setTags = useSetRecoilState(tagsState);
   const [login, setLogin] = useRecoilState(loginState);
 
-  const [playlists, setPlaylists] = React.useState<ListOfUsersPlaylists[]>([]);
+  const [playlists, setPlaylists] = React.useState<Playlist[]>([]);
 
   React.useEffect(() => {
     const localLogin = localStorage.getItem("login");
@@ -39,16 +40,21 @@ export default function App({ handleThemeSwitching }: Props) {
       setTags({ ids, items });
     });
 
-    const getPlayLst = async() =>{
-      if (login.id) {
-      const spotify = new Spotify();
-      spotify.setAccessToken(login.accessToken);
+    const getPlayLst = async () => {
+      const resp = await axios.get(
+        "http://localhost:3000/sampleData/userPlaylists.json"
+      );
+      console.log(resp);
+      setPlaylists(resp.data.items);
+      // const pl = playlists;
+      // if (login.id) {
+      // const spotify = new Spotify();
+      // spotify.setAccessToken(login.accessToken);
+      // const arr = getPlaylists(login.id, spotify)
+      // setPlaylists(await );
+    };
 
-      const arr = getPlaylists(login.id, spotify)
-      setPlaylists(await );
-    }
-    }
-    
+    getPlayLst();
   }, [setTags, setLogin]);
 
   return (
@@ -57,10 +63,10 @@ export default function App({ handleThemeSwitching }: Props) {
       <Header handleThemeSwitching={handleThemeSwitching} />
       <RouteContainer>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home playlists={playlists} />} />
           <Route
             path="/songlist"
-            element={<PlaylistView playlist="Steely Dan" />}
+            element={<PlaylistView playlist={playlists[1]} />}
           />
           <Route path="/:id/:refresh" element={<Redirect />} />
           <Route path="/tags" element={<TagsView />} />

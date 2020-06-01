@@ -1,0 +1,740 @@
+{
+    "href": "https://api.spotify.com/v1/users/augielopez/playlists?offset=0&limit=20",
+    "items": [
+      {
+        "collaborative": false,
+        "description": "Souffled from &quot;Prince&quot; by &quot;album&quot; at 2020-05-19 05:44:48.853471.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/0Bo9W59v486mrIDFcr9Zga"
+        },
+        "href": "https://api.spotify.com/v1/playlists/0Bo9W59v486mrIDFcr9Zga",
+        "id": "0Bo9W59v486mrIDFcr9Zga",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b27313cf16fd961a4b0bf822081a",
+            "width": 640
+          }
+        ],
+        "name": "Prince [souffle]",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "MyxmNmNjNGQ3YWIwMWQwYThkN2UxYTAyNzE3MjQ3MGQ2ZWQ2OTVkMjMy",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/0Bo9W59v486mrIDFcr9Zga/tracks",
+          "total": 1
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:0Bo9W59v486mrIDFcr9Zga"
+      },
+      {
+        "collaborative": false,
+        "description": "We made you a personalized playlist with songs to take you back in time.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1E4HAWCyzr5TK5"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E4HAWCyzr5TK5",
+        "id": "37i9dQZF1E4HAWCyzr5TK5",
+        "images": [
+          {
+            "height": null,
+            "url": "https://lineup-images.scdn.co/time-capsule_DEFAULT-en.jpg",
+            "width": null
+          }
+        ],
+        "name": "Your Time Capsule",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MjUxMTAzNzYsMDAwMDAwMDA1OGE2ZWE1M2JiNjliNzExMjVmNGUwZWM0NDY3NzhhMQ==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1E4HAWCyzr5TK5/tracks",
+          "total": 55
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1E4HAWCyzr5TK5"
+      },
+      {
+        "collaborative": false,
+        "description": "Your weekly mixtape of fresh music. Enjoy new discoveries and deep cuts chosen just for you. Updated every Monday, so save your favorites!",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZEVXcN5OOy7hICEH"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXcN5OOy7hICEH",
+        "id": "37i9dQZEVXcN5OOy7hICEH",
+        "images": [
+          {
+            "height": null,
+            "url": "https://newjams-images.scdn.co/v2/discover-weekly/k7JZU1HfBAziDPzJSdpS1bovLi54Jyp1frhyiKa4NKvbjbSZaPblim3zEGOEyxFBHqF23fUEOOwzTwG81ZW7VQi9eUGeGqKpBZfkFLoNdNg=/NTI6MDM6MjBUMDEtNjAtMA==/default",
+            "width": null
+          }
+        ],
+        "name": "Discover Weekly",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MjY1MDYwODAsMDAwMDAwMDBjZWMwYjNiNWNhODlmOWVjYTM1ZWJkNzVmYmVlMDZhYw==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXcN5OOy7hICEH/tracks",
+          "total": 30
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZEVXcN5OOy7hICEH"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/2uy5kcwUpEiWPp1pHL3HmX"
+        },
+        "href": "https://api.spotify.com/v1/playlists/2uy5kcwUpEiWPp1pHL3HmX",
+        "id": "2uy5kcwUpEiWPp1pHL3HmX",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da84c215a722b3d2935476c8c41f",
+            "width": null
+          }
+        ],
+        "name": "JQBX :: Starred",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MyxkYmNmNDM3NTg4ZWZmNDNkODgyMGZjZjQxZGRiMjE2YTJiOWMzMTYy",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/2uy5kcwUpEiWPp1pHL3HmX/tracks",
+          "total": 0
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:2uy5kcwUpEiWPp1pHL3HmX"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/3h8zztOORyIxvjl0tp3uvw"
+        },
+        "href": "https://api.spotify.com/v1/playlists/3h8zztOORyIxvjl0tp3uvw",
+        "id": "3h8zztOORyIxvjl0tp3uvw",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da84c47d0cb24f9a9ff75351801e",
+            "width": null
+          }
+        ],
+        "name": "JQBX :: Queue",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "NDg5LDkzOGJlZjY4NjBkY2E2ODkyMTA3MTY0ODgwYjRlYTg0YTA0MTdhODE=",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/3h8zztOORyIxvjl0tp3uvw/tracks",
+          "total": 62
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:3h8zztOORyIxvjl0tp3uvw"
+      },
+      {
+        "collaborative": false,
+        "description": "A mix of news and music made for you",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1EfIl1koimv9m4"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EfIl1koimv9m4",
+        "id": "37i9dQZF1EfIl1koimv9m4",
+        "images": [
+          {
+            "height": null,
+            "url": "https://misc.scdn.co/your-daily-drive/your-daily-drive-night.jpg",
+            "width": null
+          }
+        ],
+        "name": "Your Daily Drive",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MCwwMDAwMDAwMDIxYjYyNTk2YTY3OGEzZjA4MjFhY2NlNTBjNjE3ZjU3",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1EfIl1koimv9m4/tracks",
+          "total": 0
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZF1EfIl1koimv9m4"
+      },
+      {
+        "collaborative": false,
+        "description": "Your daily update of the most played tracks right now.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZEVXbMDoHDwVN2tF"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF",
+        "id": "37i9dQZEVXbMDoHDwVN2tF",
+        "images": [
+          {
+            "height": null,
+            "url": "https://charts-images.scdn.co/REGIONAL_GLOBAL_DEFAULT.jpg",
+            "width": null
+          }
+        ],
+        "name": "Global Top 50",
+        "owner": {
+          "display_name": "spotifycharts",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotifycharts"
+          },
+          "href": "https://api.spotify.com/v1/users/spotifycharts",
+          "id": "spotifycharts",
+          "type": "user",
+          "uri": "spotify:user:spotifycharts"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "NjQ0MjQ4NjMzLDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDY1NmU=",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZEVXbMDoHDwVN2tF"
+      },
+      {
+        "collaborative": false,
+        "description": "Your daily update of the most played tracks in United States right now.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZEVXbLRQDuF5jeBp"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXbLRQDuF5jeBp",
+        "id": "37i9dQZEVXbLRQDuF5jeBp",
+        "images": [
+          {
+            "height": null,
+            "url": "https://charts-images.scdn.co/REGIONAL_US_DEFAULT.jpg",
+            "width": null
+          }
+        ],
+        "name": "United States Top 50",
+        "owner": {
+          "display_name": "spotifycharts",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotifycharts"
+          },
+          "href": "https://api.spotify.com/v1/users/spotifycharts",
+          "id": "spotifycharts",
+          "type": "user",
+          "uri": "spotify:user:spotifycharts"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "NjQ0MjQ4NjM4LDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDY1NmU=",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZEVXbLRQDuF5jeBp/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37i9dQZEVXbLRQDuF5jeBp"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/6vCPZhwhwftX3dBSEiY4OU"
+        },
+        "href": "https://api.spotify.com/v1/playlists/6vCPZhwhwftX3dBSEiY4OU",
+        "id": "6vCPZhwhwftX3dBSEiY4OU",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da844f1c340f323924549be401c8",
+            "width": null
+          }
+        ],
+        "name": "Anderson Paak",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MzQsNjM2NTkwYmMyZmM5Y2EwYzJjN2ZkYmJiYWYyOWMzYmY4NTBhOGNjMQ==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/6vCPZhwhwftX3dBSEiY4OU/tracks",
+          "total": 26
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:6vCPZhwhwftX3dBSEiY4OU"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/5xA0fJvPCnkwxaWPEfrEpr"
+        },
+        "href": "https://api.spotify.com/v1/playlists/5xA0fJvPCnkwxaWPEfrEpr",
+        "id": "5xA0fJvPCnkwxaWPEfrEpr",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da84502ce411612f0d420a98a633",
+            "width": null
+          }
+        ],
+        "name": "DJ Quik",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MTUzLDI5NWI2NDdhODQ1MzliZWIzZjU3ZThkMTMyZDk5ZDFlOThjNTVjMjg=",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/5xA0fJvPCnkwxaWPEfrEpr/tracks",
+          "total": 146
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:5xA0fJvPCnkwxaWPEfrEpr"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/5deFBtOuZX4j3MPgX0NZw8"
+        },
+        "href": "https://api.spotify.com/v1/playlists/5deFBtOuZX4j3MPgX0NZw8",
+        "id": "5deFBtOuZX4j3MPgX0NZw8",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da847882902f4074edc8fa08ec39",
+            "width": null
+          }
+        ],
+        "name": "Mayer Hawthorne",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "OTYsM2M2ZWZhZjlkNWY4ZjU3ZjE4OGFjMjBhZjczYjRlYjhmNDM5OWRjZA==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/5deFBtOuZX4j3MPgX0NZw8/tracks",
+          "total": 62
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:5deFBtOuZX4j3MPgX0NZw8"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/4AfbalZS0Wc1cELdpyo6Oo"
+        },
+        "href": "https://api.spotify.com/v1/playlists/4AfbalZS0Wc1cELdpyo6Oo",
+        "id": "4AfbalZS0Wc1cELdpyo6Oo",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da84329de894cb04bf41c0d95662",
+            "width": null
+          }
+        ],
+        "name": "Michael Jackson",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "NSxmMTU0ZDFhZjM3NTkyMDBjMzBmN2MwZjA5MzA0OWQ2NTQ0ZWY4ZTNj",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/4AfbalZS0Wc1cELdpyo6Oo/tracks",
+          "total": 1
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:4AfbalZS0Wc1cELdpyo6Oo"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/30GoyV1roycW1jApIV5oLf"
+        },
+        "href": "https://api.spotify.com/v1/playlists/30GoyV1roycW1jApIV5oLf",
+        "id": "30GoyV1roycW1jApIV5oLf",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da84700f4f6d27691e9f8ec1fb69",
+            "width": null
+          }
+        ],
+        "name": "Prince",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "NCw3MWExZGMwNmYyMjJlMjAzNjlmOWFkZTY2Mjg0NzJiOWVmMGFkYTQ0",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/30GoyV1roycW1jApIV5oLf/tracks",
+          "total": 1
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:30GoyV1roycW1jApIV5oLf"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/61L4zuUr86chq3SpKs5eI2"
+        },
+        "href": "https://api.spotify.com/v1/playlists/61L4zuUr86chq3SpKs5eI2",
+        "id": "61L4zuUr86chq3SpKs5eI2",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da84e206d450319531bc371ab1d3",
+            "width": null
+          }
+        ],
+        "name": "Steely Dan",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "NjYsZThkMDY5MDAwYTE2Nzc2ODdlNmFmYzA4M2I4ODMyMzg4MzM4NWZiNQ==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/61L4zuUr86chq3SpKs5eI2/tracks",
+          "total": 52
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:61L4zuUr86chq3SpKs5eI2"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/3hcATE5PCgWstvUvUfhX07"
+        },
+        "href": "https://api.spotify.com/v1/playlists/3hcATE5PCgWstvUvUfhX07",
+        "id": "3hcATE5PCgWstvUvUfhX07",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273e6dfaed2104e0512b7f22256",
+            "width": 640
+          }
+        ],
+        "name": "Slow Jamz",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "Miw0MDhkMDZkYjBkYzQ4OWY2NjhhNmUzYTkyNDQzYWExOTZmNzMwOWJj",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/3hcATE5PCgWstvUvUfhX07/tracks",
+          "total": 1
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:3hcATE5PCgWstvUvUfhX07"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/5fMTp30qzhqdqfvZrZyOVo"
+        },
+        "href": "https://api.spotify.com/v1/playlists/5fMTp30qzhqdqfvZrZyOVo",
+        "id": "5fMTp30qzhqdqfvZrZyOVo",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://mosaic.scdn.co/640/ab67616d0000b2730076fcb57054fb6efad0f869ab67616d0000b2731d6bc3c9cc277593ab53a1b9ab67616d0000b273a8aada08e3d85f313cf7105dab67616d0000b273bb94bc6295a6c02c14b97b0c",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://mosaic.scdn.co/300/ab67616d0000b2730076fcb57054fb6efad0f869ab67616d0000b2731d6bc3c9cc277593ab53a1b9ab67616d0000b273a8aada08e3d85f313cf7105dab67616d0000b273bb94bc6295a6c02c14b97b0c",
+            "width": 300
+          },
+          {
+            "height": 60,
+            "url": "https://mosaic.scdn.co/60/ab67616d0000b2730076fcb57054fb6efad0f869ab67616d0000b2731d6bc3c9cc277593ab53a1b9ab67616d0000b273a8aada08e3d85f313cf7105dab67616d0000b273bb94bc6295a6c02c14b97b0c",
+            "width": 60
+          }
+        ],
+        "name": "Malt Shop Oldies",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "OCxmMmY3N2UyMzJlMjRjNjA2Y2IyOTMxYjE5ODRlZjE3Y2JlNDcyOGZl",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/5fMTp30qzhqdqfvZrZyOVo/tracks",
+          "total": 161
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:5fMTp30qzhqdqfvZrZyOVo"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/3rBM3ZM263O9ezGWloq7yf"
+        },
+        "href": "https://api.spotify.com/v1/playlists/3rBM3ZM263O9ezGWloq7yf",
+        "id": "3rBM3ZM263O9ezGWloq7yf",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da8457140a0559b6fc9797ee920b",
+            "width": null
+          }
+        ],
+        "name": "All \"Why You Treat Me So Bad\" Sample",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": true,
+        "snapshot_id": "MTQsNTBiMjJhNTMyOTMzZjE0MDAwMTc1ZmU3ZjdjMjUyZDYzOGY3ZTZjZQ==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/3rBM3ZM263O9ezGWloq7yf/tracks",
+          "total": 5
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:3rBM3ZM263O9ezGWloq7yf"
+      },
+      {
+        "collaborative": false,
+        "description": "A playlist of the best Bad Boy Entertainment catalog. Bad Boy is an American record label founded in 1993 by Sean Combs. It operates as an imprint of Epic Records, a division of Sony Music.",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/4KxR5Uzdj3N9cejobJsc90"
+        },
+        "href": "https://api.spotify.com/v1/playlists/4KxR5Uzdj3N9cejobJsc90",
+        "id": "4KxR5Uzdj3N9cejobJsc90",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da846ad8aaca01e7f3e93bcccf42",
+            "width": null
+          }
+        ],
+        "name": "Bad Boy",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MTEsYTAxZWUyZGYzNzI1Zjk3Yjk5ZmI2ODQwZTU1YjY5ZGUyMWVhZWFlZg==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/4KxR5Uzdj3N9cejobJsc90/tracks",
+          "total": 2
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:4KxR5Uzdj3N9cejobJsc90"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/34WJDmYWOuA6PVgZb9a2Q0"
+        },
+        "href": "https://api.spotify.com/v1/playlists/34WJDmYWOuA6PVgZb9a2Q0",
+        "id": "34WJDmYWOuA6PVgZb9a2Q0",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da846b63f91c70ba2e213acc0cde",
+            "width": null
+          }
+        ],
+        "name": "Chill",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MzMsMWQ4NzE1ZDg2ZjZiNDYwNzY3MjFiNDFjNmZkM2NkYmM3OGY4NGQ1NA==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/34WJDmYWOuA6PVgZb9a2Q0/tracks",
+          "total": 19
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:34WJDmYWOuA6PVgZb9a2Q0"
+      },
+      {
+        "collaborative": false,
+        "description": "",
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37d7Vk6h1qKbaOS2H8Bp5M"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37d7Vk6h1qKbaOS2H8Bp5M",
+        "id": "37d7Vk6h1qKbaOS2H8Bp5M",
+        "images": [
+          {
+            "height": null,
+            "url": "https://i.scdn.co/image/ab67706c0000da846c1d3b4bb18510a484d116c4",
+            "width": null
+          }
+        ],
+        "name": "From Spotify",
+        "owner": {
+          "display_name": "Augie Lopez",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/augielopez"
+          },
+          "href": "https://api.spotify.com/v1/users/augielopez",
+          "id": "augielopez",
+          "type": "user",
+          "uri": "spotify:user:augielopez"
+        },
+        "primary_color": null,
+        "public": false,
+        "snapshot_id": "MjUsMzY3YmMwZTJiYjgzMDE1ODBmMjg0N2YxNzMzMDdiNTg1ODQyMjkzMg==",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37d7Vk6h1qKbaOS2H8Bp5M/tracks",
+          "total": 21
+        },
+        "type": "playlist",
+        "uri": "spotify:playlist:37d7Vk6h1qKbaOS2H8Bp5M"
+      }
+    ],
+    "limit": 20,
+    "next": "https://api.spotify.com/v1/users/augielopez/playlists?offset=20&limit=20",
+    "offset": 0,
+    "previous": null,
+    "total": 132
+  }

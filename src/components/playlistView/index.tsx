@@ -8,6 +8,8 @@ interface Props {
 }
 
 export default function PlaylistView({ playlist }: React.PropsWithChildren<Props>) {
+  console.log(playlist);
+
   return (
     <Container>
       <Name>{playlist.name}</Name>
@@ -20,7 +22,8 @@ export default function PlaylistView({ playlist }: React.PropsWithChildren<Props
 
 const Container = styled.li`
   display: flex;
-  border: solid 1px;
+  border: solid 0px;
+  color: white;
   justify-content: space-between;
   align-items: center;
   padding: 1em;

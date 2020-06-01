@@ -7,7 +7,7 @@ import { loginState } from "../../store";
 import { Track, Login } from "../../spotify-functions";
 
 interface Props {
-  track: Track;
+  track: SpotifyApi.TrackObjectFull;
   isSelected: boolean;
   handleClick?: (uri: string) => void;
 }

@@ -1,14 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import ListContainer from "../../components/listContainer";
+import ListContainer from "../../components/listView";
 import TagsView from "../../components/tagsView";
 import TrackView from "../../components/trackView";
 import { searchResultsState, selectedTracksState } from "../../store";
 import { useRecoilValue, useRecoilState } from "recoil";
-import { Track } from "../../spotify-functions";
+import PlaylistsView from "../../components/playlistsView";
+import { Playlist } from "../../spotify-functions";
+import PlaylistView from "../../components/playlistView";
 
-export default function Home() {
-  const searchResults = useRecoilValue<Track[]>(searchResultsState);
+interface Props {
+  playlists: Playlist[];
+}
+
+export default function Home({ playlists }: Props) {
+  const searchResults = useRecoilValue<SpotifyApi.TrackObjectFull[]>(
+    searchResultsState
+  );
   const [selectedTracks, setSelectedTracks] = useRecoilState<string[]>(
     selectedTracksState
   );
@@ -31,6 +39,11 @@ export default function Home() {
           />
         ))}
       </ListContainer>
+      <PlaylistsView>
+        {playlists.map((p) => (
+          <PlaylistView key={p.id} playlist={p} />
+        ))}
+      </PlaylistsView>
       <TagsView />
     </Container>
   );

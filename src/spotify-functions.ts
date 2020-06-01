@@ -38,7 +38,7 @@ export interface TagStore {
 
 export interface TagTracksStore {
   ids: string[];
-  items: Record<string, Track>;
+  items: Record<string, SpotifyApi.TrackObjectFull>;
 }
 
 export interface Playlist {
@@ -145,8 +145,8 @@ export const getTagByID = (
 
 export const getTrackByID = (
   id: string,
-  tracks: Record<string, Track>
-): Track => tracks[id];
+  tracks: Record<string, SpotifyApi.TrackObjectFull>
+): SpotifyApi.TrackObjectFull => tracks[id];
 
 export const getTrackURIsByTags = (tags: TrackTag[]) => {
   let trackIds: string[] = [];

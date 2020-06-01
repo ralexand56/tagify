@@ -16,6 +16,7 @@ export default function Header({ handleThemeSwitching }: Props) {
         <Logo width="30" />
         <span style={{ fontSize: "1.3em" }}>Tagify</span>
       </HeaderTitle>
+      <Link to="/songlist">Songs</Link>
       <Link to="/tags">Tags</Link>
       <RightContainer>
         <SearchView />

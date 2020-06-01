@@ -30,7 +30,7 @@ export const loginState: RecoilState<Login> = atom<Login>({
   },
 });
 
-export const searchResultsState: RecoilState<Track[]> = atom({
+export const searchResultsState: RecoilState<SpotifyApi.TrackObjectFull[]> = atom({
   key: "searchResults",
   default: [],
 });
